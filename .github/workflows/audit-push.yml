@@ -3,8 +3,7 @@ name: npm audit push
 on: 
   push:
    branches:
-    - dev  
-
+    - audit-test
 jobs:
   front-scan:
     name: npm audit - Front-end
