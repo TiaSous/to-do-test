@@ -1,10 +1,13 @@
 name: npm audit push
 
-on: [push]
+on: 
+  push:
+   branches:
+    - dev  
 
 jobs:
-  scan:
-    name: npm audit
+  front-scan:
+    name: npm audit - Front-end
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,6 +18,11 @@ jobs:
           issue_assignees: TiaSous
           issue_labels: vulnerability,test
           working_directory: ./frontend
+  ront-scan:
+    name: npm audit - Back-end
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - uses: oke-py/npm-audit-action@v2
         with:
           audit_level: low
