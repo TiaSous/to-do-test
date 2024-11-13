@@ -1,35 +1,18 @@
-name: Lint
+name: npm audit
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  run-linters:
-    name: Run linters
+  scan:
+    name: npm audit
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: oke-py/npm-audit-action@v2
         with:
-          node-version: 12
-
-      # ESLint and Prettier must be in `package.json`
-      - name: Install Node.js dependencies
-        run: |
-         cd frontend/
-         npm ci
-
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
-          eslint_dir: ./frontend
-          prettier_dir: ./frontend
-          
+          audit_level: moderate
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_assignees: oke-py
+          issue_labels: vulnerability,test
+          dedupe_issues: true
+          working_directory: ./frontend
