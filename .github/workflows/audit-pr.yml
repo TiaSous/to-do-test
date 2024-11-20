@@ -30,10 +30,15 @@ jobs:
           issue_labels: vulnerability,test
           working_directory: ./frontend
       
-      - name: Run linter
+      - name: Run eslint
         run: |
           cd frontend/
           npm run lint
+
+      - name: Run prettier
+        run: |
+          cd frontend/
+          npm run format
 
   ront-scan:
     name: pull request - Back-end
@@ -59,7 +64,12 @@ jobs:
           issue_labels: vulnerability,test
           working_directory: ./backend
       
-      - name: Run linter
+      - name: Run eslint
         run: |
           cd backend/
           npm run lint
+      
+     - name: Run prettier
+        run: |
+          cd backend/
+          npm run format
