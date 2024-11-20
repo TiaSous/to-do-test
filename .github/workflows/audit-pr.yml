@@ -35,6 +35,11 @@ jobs:
           cd frontend/
           npm run lint
 
+      - name: Run prettier
+        run: |
+          cd frontend/
+          npm run format
+
   back-scan:
     name: pull request - Back-end
     runs-on: ubuntu-latest
@@ -63,3 +68,8 @@ jobs:
         run: |
           cd backend/
           npm run lint
+
+      - name: Run format
+        run: |
+          cd backend/
+          npm run format
