@@ -40,7 +40,7 @@ jobs:
           cd frontend/
           npm run format
 
-  ront-scan:
+  back-scan:
     name: pull request - Back-end
     runs-on: ubuntu-latest
     steps:
