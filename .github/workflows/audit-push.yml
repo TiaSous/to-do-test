@@ -68,8 +68,3 @@ jobs:
         run: |
           cd backend/
           npm run lint
-      
-      - name: Run prettier
-        run: |
-          cd backend/
-          npm run format

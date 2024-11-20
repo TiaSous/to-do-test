@@ -14,6 +14,9 @@ const menu = computed(() => [
   { name: 'Mes Tâches', path: '/', display: !!userStore.isAuthenticated },
   { name: 'À Propos', path: '/about', display: true }
 ]);
+function sayHello() {
+ console.log("Hello, world!"); // Mauvaise indentation
+}
 
 const isAuthenticated = computed(() => userStore.isAuthenticated);
 </script>
