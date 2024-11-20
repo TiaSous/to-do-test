@@ -15,7 +15,7 @@ const menu = computed(() => [
   { name: 'À Propos', path: '/about', display: true }
 ]);
 
-console.log("saluuuut")
+const test = 2;
 
 const isAuthenticated = computed(() => userStore.isAuthenticated);
 </script>
